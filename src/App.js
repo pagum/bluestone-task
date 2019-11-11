@@ -6,6 +6,7 @@ import './App.css';
 import Homepage from './Homepage/Homepage';
 import { history } from './history';
 import { store } from './store';
+import { ProductDetailsPage } from './ProductDetailsPage/ProductDetailsPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Fragment>
           <Switch>
             <Route exact path="/" component={Homepage} />
+            <Route component={ProductDetailsPage} path="/product" />
           </Switch>
         </Fragment>
       </Router>

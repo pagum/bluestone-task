@@ -13,7 +13,6 @@ interface HomepageProps {
 const Homepage = ({ fetchProducts }: HomepageProps) => {
   useEffect(() => {
     const prod = fetchProducts();
-    console.log(prod);
   }, []);
   return (
     <ProductsColmun>

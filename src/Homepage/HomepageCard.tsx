@@ -1,4 +1,5 @@
 import React from 'react';
+import queryString from 'query-string';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { ProductInterface, ImageInterface } from '../data';
 import { ProductCard, ProductImage } from './Homepage.style';
+import { Redirect } from 'react-router';
+import { ProductDetailsPage } from '../ProductDetailsPage/ProductDetailsPage';
 
 interface MediaCardInterface {
   product: ProductInterface;
@@ -25,8 +28,17 @@ export const MediaCard = ({ product }: MediaCardInterface) => {
       />
     );
   };
+
+  const redirectToDetails = (e: React.MouseEvent) => {
+    window.location.pathname = `/product/${e.currentTarget.id}`;
+    return <Redirect to={'/product'} />;
+  };
   return (
-    <ProductCard onClick={e => console.log('fffff')}>
+    <ProductCard
+      onClick={e => redirectToDetails(e)}
+      key={product.name}
+      id={product.name}
+    >
       <CardActionArea>
         {prepareImage(product)}
         <CardContent>
