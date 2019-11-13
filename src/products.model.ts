@@ -3,14 +3,7 @@ import { ProductInterface } from './data';
 
 export const productsModel = {
   state: { products: undefined },
-  reducers: {
-    setProducts(state: any, payload: ProductInterface[]) {
-      return {
-        ...state,
-        products: payload,
-      };
-    },
-  },
+  reducers: {},
   effects: {
     async fetchProducts() {
       await getProducts().then(result =>
